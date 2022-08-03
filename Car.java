@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Car {
     private String make;
     private int year;
@@ -28,7 +30,6 @@ public class Car {
         this.year = year;
     }
 
-
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -39,6 +40,19 @@ public class Car {
         }
         Car car = (Car) obj;
         return this.make.equals(car.make) && this.year == car.year;
+    }
+
+    @Override
+    public String toString() {
+        return (this.getMake() + ", " + this.getYear());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                this.getMake(),
+                this.getYear());
+
     }
 
 }
